@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
                         runOnUiThread(()->{
                             changeInProgress(false);
                             articleList = response.getArticles();
+                            adapter.updateData(articleList);
+                            adapter.notifyDataSetChanged();
                         });
                     }
 

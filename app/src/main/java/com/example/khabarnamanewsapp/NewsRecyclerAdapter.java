@@ -40,9 +40,9 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
                 .into(holder.imageView);
     }
 
-    void updateDate(){
-        articleList.clear();
-        articleList.addAll(data);
+    void updateData(List<Article> data){
+        this.articleList.clear();
+        this.articleList.addAll(data);
     }
 
     @Override
