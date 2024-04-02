@@ -14,6 +14,9 @@ import java.util.List;
 import com.kwabenaberko.newsapilib.models.Article;
 import com.squareup.picasso.Picasso;
 
+import android.content.Intent;
+
+
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.NewsViewHolder> {
 
     List<Article> articleList;
@@ -38,6 +41,11 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
                 .error(R.drawable.no_image_icon)
                 .placeholder(R.drawable.no_image_icon)
                 .into(holder.imageView);
+        holder.itemView.setOnClickListener((v->{
+            Intent intent = new Intent(v.getContext(), NewsFullActivity.class);
+            intent.putExtra("url", article.getUrl());
+            v.getContext().startActivity(intent);
+        }));
     }
 
     void updateData(List<Article> data){
